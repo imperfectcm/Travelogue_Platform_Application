@@ -2,11 +2,9 @@
 This is a travel blog web platform developed by student, 
 which is built by Node.js, Express.js framwork, Google Cloud Vision AI API and Google Places API for landmarks detecting.
 
-# install
-set up .env file
+# setup
 yarn install
 
-# setup
 yarn run setup
 
 # .env File
