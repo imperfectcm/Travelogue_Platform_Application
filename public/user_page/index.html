@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog</title>
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&display=swap" rel="stylesheet">
+
+  <!-- collect star -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="hidden navbar-public">
+      <div class="fix-navbar-width">
+        <span class="logo"><img src="/worldtravellers-logo.png" height="30"></span><span class="nav-home-page">Homepage</span><span class="nav-login">Login</span><span
+          class="nav-registration">Registration</span>
+      </div>
+    </nav>
+    <nav class="hidden navbar-private">
+      <div class="fix-navbar-width">
+        <span class="logo"><img src="/worldtravellers-logo.png" height="30"></span><span class="nav-home-page-pr">Homepage</span><span class="nav-user-page">My Blog</span><span
+          class="nav-logout">Logout</span>
+      </div>
+    </nav>
+
+    <div class="post-cover-area">
+      <div class="blog-image">
+        <img id="blog-image-preview" src="/mainpage_1.jpg" class="d-block w-100" alt="...">
+        <div class="change-cover-reminder">Double Click To Change Cover Image</div>
+      </div>
+    </div>
+
+
+    <main class="user-and-blog-area">
+      <div class="user-and-blog-area-container">
+
+        <aside class="userpage-profile-pic-and-user-info">
+          <div class="userpage-profile-pic">
+            <img class="userpage-profile-pic-img" src="/default-icon.jpg" alt="">
+            <div class="hidden profile-pic-change-reminder">Double Click To Change Icon</div>
+          </div>
+          <div class="user-info">
+            <div class="user-info-top-part">
+              TRAVELLER PASS
+            </div>
+            <div class="user-info-middle-part ">
+              <div class="user-info-title title-username">USERNAME</div>
+              <div class="user-info-content content-username"></div>
+              <div class="user-info-title title-from">FROM</div>
+              <div class="user-info-content content-from">This planet</div>
+              <div class="user-info-title title-caption">CAPTION</div>
+              <div class="user-info-content content-caption">Still have no caption.</div>
+              <div class="user-info-change-reminder hidden">Double Click To Change User Information</div>
+              <!-- <div class="user-info-title title-last-comments">LAST 3 COMMENTS</div> -->
+              <!-- <div class="user-info-content content-comments">No any comments.</div> -->
+            </div>
+            <div class="user-info-bottom-part"></div>
+          </div>
+
+          <div class="mypost-btn">My Posts</div>
+          <div class="collect-btn">Collected Posts</div>
+          <div class="create-btn">Create Post</div>
+
+        </aside>
+
+        <article class="post-list-area">
+
+          <!-- <section class="post">
+            <div class="left-image-reight-profile">
+
+                <div class="post-image-and-title">
+                    <div class="post-image">
+                        <img src="/cm_test_post_image.jpg" alt="">
+                    </div>
+                    <div class="post-title">
+                        First time travel to India
+                    </div>
+                </div>
+
+                <div class="profile-pic-and-tag">
+                    <div class="author-area">
+                        <div class="profile-pic">
+                            <img src="/cm_test_cat4.jpg" alt="">
+                        </div>
+                        <div class="author-name">
+                            <div class="traveller">Traveller : </div>
+                            <div type="button" class="traveller-name">chaewon</div>
+                        </div>
+                    </div>
+                    <div class="tag">
+                        <div type="button"><span>#</span>India</div>
+                    </div>
+                </div>
+
+                <div class="collect-count fa fa-star checked"><span>&nbsp;</span>10</div>
+            </div>
+        </section> -->
+
+        </article>
+      </div>
+    </main>
+
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+
+    <!-- for preview cover image-->
+    <div class="overlay-upload-image hidden"></div>
+    <div class="modal-upload-image hidden">
+      <div class="upload-image-modal-content">
+        <span class="upload-image-modal-close-button">&times;</span>
+        <h2>Upload Image</h2>
+        <!-- for preview image  -->
+        <div class="image-preview">
+          <img id="preview-image" src="/default-icon.jpg" alt="Image Preview" />
+        </div>
+
+        <div class="image-input-button-area">
+          <button class="image-input-button">
+            <div class="image-input-button-label">Upload Image</div>
+            <input type="file" id="image-input" accept="image/*" />
+          </button>
+          <button id="upload-image-button">Confirm</button>
+        </div>
+
+      </div>
+    </div>
+    <!-- ***************************************************************************** -->
+    <!-- edit profile overlay  -->
+    <div class="edit-profile-overlay hidden"></div>
+    <!-- edit profile overlay  -->
+    <div class="edit-profile-modal hidden">
+      <span class="edit-profile-close-btn">&times;</span>
+      <h2>Update Profile</h2>
+      <img class="edit-profile-preview" src="" alt="image">
+
+      <div class="edit-profile-section">
+
+        <div class="profile-input-upload image-input-button-area">
+          <button class="image-input-button">
+            <div class="image-input-button-label">Upload Image</div>
+            <input type="file" id="profile-input" name="file-upload" accept="image/*" />
+          </button>
+          <button class="upload-profile-button">Confirm</button>
+        </div>
+
+      </div>
+    </div>
+    <!-- ***************************************************************************** -->
+
+    <div class="overlay-upload-infor hidden "></div>
+    <div class="upload-infor-modal hidden">
+
+      <span class="infor-close-btn">&times;</span>
+      <div class="form-group">
+        <label for="username"> Username </label>
+        <input type="text" class="user-name" name="username">
+      </div>
+      <div class="form-group">
+        <label for="living_location"> Living_location</label>
+        <input type="text" class="user-living_location" name="living_location">
+      </div>
+
+      <div class="form-group">
+
+        <label for="caption">Caption</label>
+        <input type="textarea" class="user-caption" name="caption">
+      </div>
+
+
+
+
+      <button class="updateInforBtn">Update</button>
+
+
+    </div>
+
+
+
+
+
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

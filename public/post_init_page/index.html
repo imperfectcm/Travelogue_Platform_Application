@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href='https://fonts.googleapis.com/css?family=Josefin Sans' rel='stylesheet'>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>editor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<body>
+  <nav class="navbar-private">
+    <div class="fix-navbar-width">
+      <span class="logo"><img src="/worldtravellers-logo.png" height="30"></span><span
+        class="nav-home-page-pr">Homepage</span><span class="nav-user-page">My Blog</span><span
+        class="nav-logout">Logout</span>
+    </div>
+  </nav>
+
+  <div class="post-cover-area">
+    <div class="post-image">
+      <img id="post-image-preview" src="/mainpage_1.jpg" class="d-block w-100" alt="...">
+      <div class="change-cover-reminder">Double Click To Change Cover Image</div>
+    </div>
+
+
+    <input type="text" class="post-title" name="title" id="title"
+      placeholder="Let's Start With Naming Your Journey Title">
+  </div>
+
+  <article class="travel-detail">
+    <div class="travel-detail-upper-layer">
+      <!-- for departure_date-->
+      <label for="departure_date">Departure Date</label>
+      <input type="date" name="departure_date" id="departure_date" />
+      <!-- for travel day count-->
+      <label for="travel_dates">Travel Dates</label>
+      <input type="number" name="travel_dates" id="travel_dates" min="1" max="10" />
+    </div>
+
+    <div class="travel-detail-lower-layer">
+      <!-- for average expense-->
+      <label for="average_expenditure">Average Expenses</label>
+      <input type="number" name="average_expenditure" id="average_expenditure" />
+      <!-- for people count-->
+      <label for="traveller_counts">No. Of Travellers</label>
+      <input type="number" name="traveller_counts" id="traveller_counts" />
+    </div>
+  </article>
+
+
+  <!-- for nation tag selector-->
+  <div class="form-group">
+    <div class="tag-container">
+      <label for="nation_tags">Nation</label>
+      <div>
+        <select id="country-selector"></select>
+        <button id="add-nation-tag-btn">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- for other tag list-->
+  <div class="tag-list-bar">
+    <div id="nation-tag-list" class="tag_list"></div>
+  </div>
+
+  <!-- for other tag input-->
+  <div class="form-group">
+    <div class="tag-container">
+      <label for="other_tags">Other Tags</label>
+      <div>
+        <input type="text" class="form-control" id="other-tags-input" name="other_tags" />
+        <button id="add-other-tag-btn">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- for nation list-->
+  <div class="tag-list-bar">
+    <div id="tag_list" class="tag_list"></div>
+  </div>
+
+
+  <div id="reminder">
+    ** Please write something for title befor continue your story...**
+  </div>
+
+  <article class="editor-container">
+    <!-- for text editor-->
+    <div id="editorjs" class="editor"></div>
+  </article>
+
+
+  <!-- btns for save edit clear and publish-->
+  <div class="publish-btn-container">
+    <div class="publish-btn">
+      <button class="try-clear">Clear Article</button>
+      <div class="private-and-publish-btn">
+        <button id="save">Save In Private</button>
+        <button id="publish">Publish</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- for preview cover image-->
+  <div class="overlay-upload-image hidden"></div>
+  <div class="modal-upload-image hidden">
+    <div class="upload-image-modal-content">
+      <span class="upload-image-modal-close-button">&times;</span>
+      <h2>Upload Image</h2>
+      <!-- for preview image  -->
+      <div class="image-preview">
+        <img id="preview-image" src="/mainpage_1.jpg" alt="Image Preview" />
+      </div>
+
+      <div class="image-input-button-area">
+        <button class="image-input-button">
+          <div class="image-input-button-label">Upload Image</div>
+          <input type="file" id="image-input" accept="image/*" />
+        </button>
+        <button id="upload-image-button">Confirm</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- for remind clear arcticle-->
+  <div class="to-confirm-clear hidden">
+    <section>
+      <div class="clear-question">!<br /><br />Are You Sure To Clear<br />ALL Arcticle Content ?</div>
+      <div>
+        <button id="cancel-clear">Cancel</button>
+        <button id="clear">Confirm</button>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- for remind change cover image-->
+  <div class="change-cover-reminder hidden"></div>
+
+
+  <!-- <div id="editorjs2" class="editor"></div> -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.28.2"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/editorjs-text-color-plugin@2.0.3/dist/bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/editorjs-inline-font-size-tool@1.0.1/dist/bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/underline@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/editorjs-html@3.4.0/build/edjsHTML.browser.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/editorjs-parser@1.5.3/build/Parser.browser.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/editorj-parser@1/build/Parser.browser.min.js"></script> -->
+
+  <script type="module" src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+:root {
+  --main-light-color: rgb(208, 199, 235);
+  --main-middle-color: rgb(164, 154, 192);
+  --main-dark-color: rgb(118, 110, 156);
+  --white-color-00: rgba(255, 255, 255, 0);
+  --white-color-60: rgba(255, 255, 255, 0.6);
+  --white-color-80: rgba(255, 255, 255, 0.8);
+  --white-color: rgba(255, 255, 255);
+  --grey-color: rgb(115, 115, 115);
+  --grey-color-60: rgb(115, 115, 115, 0.6);
+  --grey-color-80: rgb(115, 115, 115, 0.8);
+  --post-red-color: rgb(190, 82, 82);
+  --post-blue-color: rgb(85, 136, 170);
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+}
+
+.drop_container {
+  display: flex;
+  justify-content: center;
+}
+
+#drop_zone,
+.p {
+  width: 340px;
+  height: 340px;
+  color: var(--grey-color-60);
+  border: 15px solid;
+  padding: 3rem;
+  line-height: 140%;
+  font-size: 2.6rem;
+
+  display: flex;
+
+  align-items: center;
+  text-align: center;
+
+  border-image: 16
+    repeating-linear-gradient(
+      -45deg,
+      var(--post-red-color) 0,
+      var(--post-red-color) 15px,
+      var(--white-color) 0,
+      var(--white-color) 30px,
+      var(--post-blue-color) 0,
+      var(--post-blue-color) 45px,
+      var(--white-color) 0,
+      var(--white-color) 60px
+    );
+
+  overflow: hidden;
+
+  @media screen and (max-width: 2000px) {
+    height: 700px;
+    transition: 0.8s;
+  }
+
+  @media screen and (max-width: 1700px) {
+    height: 550px;
+    transition: 0.8s;
+  }
+
+  @media screen and (max-width: 1250px) {
+    height: 400px;
+    transition: 0.8s;
+  }
+}
+input {
+  display: none;
+}

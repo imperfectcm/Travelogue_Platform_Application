@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Josefin Sans"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Star icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>post</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="hidden navbar-public">
+        <div class="fix-navbar-width">
+          <span class="logo"
+            ><img src="/worldtravellers-logo.png" height="30" /></span
+          ><span class="nav-home-page">Homepage</span
+          ><span class="nav-login">Login</span
+          ><span class="nav-registration">Registration</span>
+        </div>
+      </nav>
+      <nav class="hidden navbar-private">
+        <div class="fix-navbar-width">
+          <span class="logo"
+            ><img src="/worldtravellers-logo.png" height="30" /></span
+          ><span class="nav-home-page-pr">Homepage</span
+          ><span class="nav-user-page">My Blog</span
+          ><span class="nav-logout">Logout</span>
+        </div>
+      </nav>
+
+      <div class="post-cover-area">
+        <div class="post-image">
+          <img id="post-image-preview" src="/mainpage_1.jpg" alt="..." />
+          <div class="change-cover-reminder">
+            Double Click To Change Cover Image
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <article class="all-content">
+      <div class="post-title-container">
+        <div class="post-title" id="title"></div>
+        <div class="change-post-title-reminder">
+          Double Click To Change Title
+        </div>
+      </div>
+
+      <section class="author-detail">
+        <div class="author-profile-pic-area">
+          <div class="author-profile-container">
+            <img id="author_profile" src="/default-icon.jpg" alt="" />
+          </div>
+          <div class="name-and-cap">
+            <div id="username">username</div>
+            <div id="caption">caption</div>
+          </div>
+        </div>
+
+        <div class="private-and-collect-btn"></div>
+      </section>
+
+      <section class="travel-detail">
+        <div class="travel-detail-upper-layer"></div>
+        <div class="travel-detail-lower-layer"></div>
+      </section>
+
+      <section class="tag-list-area-container">
+        <div class="tag-list-area">
+          <div class="tag-list">
+            <!-- <span>#tag</span><span>#tag</span><span>#tag</span><span>#tag</span><span>#tag</span> -->
+          </div>
+          <button id="edit">Edit Travel Info</button>
+        </div>
+      </section>
+
+      <div class="html_content_area">
+        <div class="html_content"></div>
+        <div class="change-post-content-reminder">
+          Double Click Blank Space To Change Blog Content
+        </div>
+      </div>
+      <div class="comments_session">
+        <div class="comment_container">
+          <div class="comment_item">
+            <!-- <div class="comment_author_profile_cropper">
+            <img class="comment_author_profile" src="./img/photo-1716668596098-40ff5f73fb9e.avif" alt="image" />
+          </div>
+          <div class="comment_right_content">
+            <div class="comment_author_name">IU</div>
+            <div class="comment_content">This is really great</div>
+            <div class="comment_create_time">02-06-2024</div>
+          </div> -->
+          </div>
+        </div>
+        <input
+          type="text"
+          id="comment-input"
+          class="hidden"
+          placeholder="Wirte your comments ..."
+        />
+      </div>
+
+      <!-- overlay for uploading image  -->
+      <div class="overlay-upload-image hidden"></div>
+      <div class="modal-upload-image hidden">
+        <div class="upload-image-modal-content">
+          <span class="upload-image-modal-close-button">&times;</span>
+          <h2>Upload Image</h2>
+          <!-- for preview image  -->
+          <div class="image-preview">
+            <img id="preview-image" src="/mainpage_1.jpg" alt="Image Preview" />
+          </div>
+
+          <div class="image-input-button-area">
+            <button class="image-input-button">
+              <div class="image-input-button-label">Upload Image</div>
+              <input type="file" id="image-input" accept="image/*" />
+            </button>
+            <button id="upload-image-button">Upload</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- overlay for uploading title  -->
+      <div class="overlay-edit-title hidden"></div>
+      <div class="modal-title hidden">
+        <div class="edit-title-container">
+          <span class="edit-title-close-button">&times;</span>
+          <!-- <label for="title">title</label> -->
+          <textarea
+            type="text"
+            name="title"
+            class="title-edit-input"
+          ></textarea>
+          <button class="edit-title-btn">Confirm Edit</button>
+        </div>
+      </div>
+
+      <!-- for edit tag and other information -->
+      <!-- overlay-->
+      <div class="overlay-update-tags hidden"></div>
+      <!-- overlay-modal-->
+      <div class="update-tags-modal hidden">
+        <span class="update-tags-modal-close">&times;</span>
+        <!-- update travel information-->
+        <article class="edit-travel-detail">
+          <div class="edit-travel-detail-upper-layer">
+            <!-- for departure_date-->
+            <div class="edit-travel-detail-inner-container">
+              <label for="departure_date">Departure Date</label>
+              <input type="date" name="departure_date" id="departure_date" />
+            </div>
+            <!-- for travel day count-->
+            <div class="edit-travel-detail-inner-container">
+              <label for="travel_dates">Travel Dates</label>
+              <input
+                type="number"
+                name="travel_dates"
+                id="travel_dates"
+                min="1"
+              />
+            </div>
+          </div>
+
+          <div class="edit-travel-detail-lower-layer">
+            <!-- for average expense-->
+            <div class="edit-travel-detail-inner-container">
+              <label for="average_expenditure">Average Expenses</label>
+              <input
+                type="number"
+                name="average_expenditure"
+                id="average_expenditure"
+              />
+            </div>
+            <!-- for people count-->
+            <div class="edit-travel-detail-inner-container">
+              <label for="traveller_counts">No. Of Travellers</label>
+              <input
+                type="number"
+                name="traveller_counts"
+                id="traveller_counts"
+                min="1"
+              />
+            </div>
+          </div>
+        </article>
+        <!-- for nation tag list-->
+        <div class="tag-list-bar">
+          <div id="nation-tag-list" class="tag_list"></div>
+        </div>
+        <!-- for other tag list-->
+        <div class="tag-list-bar">
+          <div id="tag_list" class="tag_list"></div>
+        </div>
+        <!-- for nation tag selector-->
+        <div class="form-group">
+          <div class="tag-container">
+            <label for="nation_tags">Nation</label>
+            <div>
+              <select id="country-selector"></select>
+              <button id="add-nation-tag-btn">Add</button>
+            </div>
+          </div>
+        </div>
+        <!-- for other tag list-->
+        <div class="form-group">
+          <div class="tag-container">
+            <label for="other_tags">Other Tags</label>
+            <div>
+              <input
+                type="text"
+                class="form-control"
+                id="other-tags-input"
+                name="other_tags"
+              />
+              <button id="add-other-tag-btn">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="edit-option-info">edit</button>
+        </div>
+      </div>
+
+      <!-- Update text editor -->
+      <div class="editor-container">
+        <button id="save_editor">Save Change</button>
+        <div id="editorjs2"></div>
+      </div>
+    </article>
+
+    <!-- bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- editorjs -->
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.28.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/editorjs-text-color-plugin@2.0.3/dist/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/editorjs-inline-font-size-tool@1.0.1/dist/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/underline@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/editorjs-html@3.4.0/build/edjsHTML.browser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/editorjs-parser@1.5.3/build/Parser.browser.min.js"></script>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
